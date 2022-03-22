@@ -1,29 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const CounterWrapper = styled.div`
   display: flex;
 `;
 
-const Button = (props) => {
+const Button = ({ onClick, text }) => {
   return (
-    <button class="block" onClick={props.onClick}>
-      {props.text}
+    <button class="block" onClick={onClick}>
+      {text}
     </button>
   );
 };
 
-const Counter = () => {
-  const [counter, setCounter] = useState(0);
-
-  const increaseByOne = () => setCounter(counter + 1);
-  const decreaseByOne = () => setCounter(counter - 1);
-  const setToZero = () => setCounter(0);
+const Counter = ({ value, setValue, defaultValue }) => {
+  const increaseByOne = () => setValue(value + 1);
+  const decreaseByOne = () => setValue(value - 1);
+  const resetValue = () => setValue(defaultValue || 1);
   return (
     <CounterWrapper class="card block">
-      <p class="block accent fixed">{counter}</p>
+      <p class="block accent fixed">{value}</p>
       <Button onClick={increaseByOne} text="plus" />
-      <Button onClick={setToZero} text="zero" />
+      <Button onClick={resetValue} text="reset" />
       <Button onClick={decreaseByOne} text="minus" />
     </CounterWrapper>
   );

@@ -1,6 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
-
+import Counter from "../Components/Counter";
 const Button = (props) => {
   return (
     <button class="block" onClick={props.onClick}>
@@ -13,32 +13,29 @@ const CounterWrapper = styled.div`
   display: flex;
 `;
 
-const rotate = keyframes`
+// Here we create a component that will rotate everything we pass in over two seconds
+
+const Layout = styled.div`
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const RotatableEmoji = ({ emoji, size, initDeg, period }) => {
+  const rotate = keyframes`
   from {
-    transform: rotate(0deg);
+    transform: rotate(${() => initDeg || 0}deg);
   }
 
   to {
     transform: rotate(360deg);
   }
 `;
-
-// Here we create a component that will rotate everything we pass in over two seconds
-const Rotate = styled.div`
-  display: inline-block;
-  animation: ${rotate} 10s linear infinite;
-  padding: 2rem 1rem;
-  font-size: ${(props) => props.size}rem;
-`;
-
-const Layout = styled.div`
-  margin-left: 5rem;
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-`;
-
-const RotatableEmoji = ({ emoji, size }) => {
+  const Rotate = styled.div`
+    animation: ${rotate} ${() => period || 30}s linear infinite;
+    padding: 2rem 1rem;
+    font-size: ${(props) => props.size}rem;
+  `;
   return (
     <Rotate size={size}>
       <span role="img" aria-label="earth">
@@ -48,29 +45,43 @@ const RotatableEmoji = ({ emoji, size }) => {
   );
 };
 
+const renderEmoji = () => {
+  const emojis = ["🌑", "🌒", "🌓", "🌔"];
+  const emojiList = emojis.map((emo) => "<li>" + emo + "</li>");
+  return (
+    <ul>
+      <emojiList>emojiList</emojiList>
+    </ul>
+  );
+};
+
 const Container = styled.div`
-  width: 50%;
+  width: 30%;
+  display: flex;
 `;
 
 const OrbitApp2 = () => {
-  const defaultSize = 10;
-  const [counter, setCounter] = useState(defaultSize);
+  const defaultSize = 6;
+  const [size, setCounter] = useState(defaultSize);
 
-  const increaseByOne = () => setCounter(counter + 1);
-  const decreaseByOne = () => setCounter(counter - 1);
-  const reset = () => setCounter(defaultSize);
   return (
     <Layout>
-      <CounterWrapper class="card block">
-        <p class="block accent fixed">Size: {counter}</p>
-        <Button onClick={increaseByOne} text="plus" />
-        <Button onClick={reset} text="reset" />
-        <Button onClick={decreaseByOne} text="minus" />
-      </CounterWrapper>
+      <Counter
+        value={size}
+        setValue={setCounter}
+        defaultValue={defaultSize}
+      ></Counter>
+      <renderEmoji />
       <Container>
-        <RotatableEmoji emoji="🌏" size={counter}></RotatableEmoji>
+        <RotatableEmoji emoji="🌏" size={size} period={3}></RotatableEmoji>
+        <RotatableEmoji
+          emoji="🌓"
+          size={size}
+          period={4}
+          initDeg={30}
+        ></RotatableEmoji>
+        <RotatableEmoji emoji="🌍" period={10} size={size}></RotatableEmoji>
       </Container>
-      <RotatableEmoji emoji="🌍" size={counter}></RotatableEmoji>
     </Layout>
   );
 };

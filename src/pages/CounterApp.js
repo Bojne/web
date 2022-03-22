@@ -6,7 +6,6 @@ const rotate = keyframes`
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
@@ -21,40 +20,32 @@ const Rotate = styled.div`
 `;
 
 const Layout = styled.div`
-  margin-left: 5rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
 `;
 
-const Sign = ({ bioLink }) => {
-  return (
-    <p>
-      {" "}
-      Made by{" "}
-      <a href={bioLink} target="_blank" rel="noopener noreferrer">
-        {" "}
-        Yueh-Han
-      </a>
-    </p>
-  );
-};
-
 const OrbitApp = () => {
+  const [v1, setV1] = useState(0);
+  const [v2, setV2] = useState(0);
+  const [v3, setV3] = useState(0);
+  const [v4, setV4] = useState(0);
+  const [v5, setV5] = useState(0);
+  const [v6, setV6] = useState(0);
+
   return (
     <Layout>
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
+      <Counter value={v1} setValue={setV1} />
+      <Counter value={v2} setValue={setV2} />
+      <Counter value={v3} setValue={setV3} />
+      <Counter value={v4} setValue={setV4} />
+      <Counter value={v5} setValue={setV5} />
+      <Counter value={v6} setValue={setV6} />
       <Rotate>
-        <span role="img" aria-label="earth">
+        <span role="img" aria-label="monkey">
           🙊
         </span>
       </Rotate>
-      <Sign bioLink="https://github.com/bojne"></Sign>
     </Layout>
   );
 };
