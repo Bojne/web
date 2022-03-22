@@ -72,7 +72,11 @@ const App = () => {
       </CounterWrapper>
       <Container>
         <Rotate size={counter}>
-          &lt; <span role="img">🌏</span>&gt;
+          &lt;{" "}
+          <span role="img" aria-label="earth">
+            🌏
+          </span>
+          &gt;
         </Rotate>
       </Container>
     </Layout>

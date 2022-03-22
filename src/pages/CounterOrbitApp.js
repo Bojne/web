@@ -77,7 +77,9 @@ const App = () => {
       <CounterSet />
       <CounterSet />
       <Rotate>
-        &lt; <span role="img">🌏</span> &gt;
+        <span role="img" aria-label="earth">
+          🌏
+        </span>
       </Rotate>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Layout>
