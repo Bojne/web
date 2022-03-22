@@ -4,7 +4,7 @@ import React from "react";
 const RotatableEmoji = ({ emoji, size, initDeg, period }) => {
   const rotate = keyframes`
   from {
-    transform: rotate(${() => initDeg || 0}deg);
+    transform: rotate(${() => (0 + initDeg).toString() + "deg"}); 
   }
 
   to {

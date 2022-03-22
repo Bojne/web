@@ -33,6 +33,16 @@ const renderEmoji = () => {
           ></RotatableEmoji>
         ))}
       </div>
+      {/* <div>
+        {emojis.map((emo, index) => (
+          <RotatableEmoji
+            emoji={emo}
+            size={6}
+            period={15}
+            initDeg={Math.floor(index * 15)}
+          ></RotatableEmoji>
+        ))}
+      </div> */}
     </div>
   );
 };
