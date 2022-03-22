@@ -1,38 +1,5 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
-
-class LambdaDemo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loading: false, msg: null };
-  }
-
-  handleClick = (api) => (e) => {
-    e.preventDefault();
-
-    this.setState({ loading: true });
-    fetch("/.netlify/functions/" + api)
-      .then((response) => response.json())
-      .then((json) => this.setState({ loading: false, msg: json.msg }));
-  };
-
-  render() {
-    const { loading, msg } = this.state;
-
-    return (
-      <p>
-        <button class="block" onClick={this.handleClick("hello")}>
-          {loading ? "Loading..." : "Call Lambda"}
-        </button>
-        {/* <button onClick={this.handleClick("async-dadjoke")}>
-          {loading ? "Loading..." : "Call Async Lambda"}
-        </button> */}
-        <br />
-        <span>{msg}</span>
-      </p>
-    );
-  }
-}
 
 const Button = (props) => {
   return (
@@ -109,9 +76,8 @@ const App = () => {
       <CounterSet />
       <CounterSet />
       <CounterSet />
-      <LambdaDemo />
       <Rotate>
-        &lt; <span>🌏 🌝</span> &gt;
+        &lt; <span role="img">🌏</span> &gt;
       </Rotate>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Layout>

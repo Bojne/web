@@ -71,7 +71,9 @@ const App = () => {
         <Button onClick={decreaseByOne} text="minus" />
       </CounterWrapper>
       <Container>
-        <Rotate size={counter}>&lt; 🌏 🌝&gt;</Rotate>
+        <Rotate size={counter}>
+          &lt; <span role="img">🌏</span>&gt;
+        </Rotate>
       </Container>
     </Layout>
   );
