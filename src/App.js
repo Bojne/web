@@ -78,7 +78,7 @@ const Rotate = styled.div`
   display: inline-block;
   animation: ${rotate} 15s linear infinite;
   padding: 2rem 1rem;
-  font-size: 1.2rem;
+  font-size: 3rem;
 `;
 
 const Layout = styled.div`
@@ -88,7 +88,24 @@ const Layout = styled.div`
   flex-direction: column;
 `;
 
+const Sign = ({ bioLink }) => {
+  return (
+    <p>
+      {" "}
+      Made by{" "}
+      <a href={bioLink} target="_blank">
+        {" "}
+        Yueh-Han
+      </a>
+    </p>
+  );
+};
+
 const App = () => {
+  const [counter, setCounter] = useState(0);
+  const increaseByOne = () => setCounter(counter + 1);
+  const decreaseByOne = () => setCounter(counter - 1);
+  const setToZero = () => setCounter(0);
   return (
     <Layout>
       <CounterSet />
@@ -98,7 +115,8 @@ const App = () => {
       <CounterSet />
       <CounterSet />
       <LambdaDemo />
-      <Rotate>&lt; 🌏 &gt;</Rotate>
+      <Rotate>&lt; 🌏 🌝 &gt;</Rotate>
+      <Sign bioLink="https://github.com/bojne"></Sign>
     </Layout>
   );
 };
