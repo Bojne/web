@@ -92,7 +92,7 @@ const Sign = ({ bioLink }) => {
     <p>
       {" "}
       Made by{" "}
-      <a href={bioLink} target="_blank">
+      <a href={bioLink} target="_blank" rel="noopener noreferrer">
         {" "}
         Yueh-Han
       </a>
