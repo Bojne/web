@@ -110,7 +110,9 @@ const App = () => {
       <CounterSet />
       <CounterSet />
       <LambdaDemo />
-      <Rotate>&lt; 🌏 🌝 &gt;</Rotate>
+      <Rotate>
+        &lt; <span>🌏 🌝</span> &gt;
+      </Rotate>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Layout>
   );
