@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import OrbitApp2 from "./pages/OrbitApp";
 import OrbitApp from "./pages/CounterApp";
-import EmojiRing from "./pages/EmojiRing";
+import EmojiRing from "./pages/MoonApp";
 import styled from "styled-components";
 import "./index.css";
 
@@ -29,8 +29,8 @@ const NavBar = () => {
       <Link class="block" to="/counter">
         Counter
       </Link>
-      <Link class="block" to="/ring">
-        Ring
+      <Link class="block" to="/moon">
+        Moon
       </Link>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Bar>
@@ -48,7 +48,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<OrbitApp2 />}></Route>
         <Route exact path="/counter" element={<OrbitApp />}></Route>
-        <Route exact path="/ring" element={<EmojiRing />}></Route>
+        <Route exact path="/moon" element={<EmojiRing />}></Route>
       </Routes>
     </Container>
   );
