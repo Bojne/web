@@ -38,16 +38,13 @@ const Layout = styled.div`
   flex-direction: column;
 `;
 
-const Sign = ({ bioLink }) => {
+const RotatableEmoji = ({ emoji, size }) => {
   return (
-    <p>
-      {" "}
-      Made by{" "}
-      <a href={bioLink} target="_blank">
-        {" "}
-        Yueh-Han
-      </a>
-    </p>
+    <Rotate size={size}>
+      <span role="img" aria-label="earth">
+        {emoji}
+      </span>
+    </Rotate>
   );
 };
 
@@ -55,32 +52,27 @@ const Container = styled.div`
   width: 50%;
 `;
 
-const App = () => {
-  const [counter, setCounter] = useState(1);
+const OrbitApp2 = () => {
+  const defaultSize = 10;
+  const [counter, setCounter] = useState(defaultSize);
 
   const increaseByOne = () => setCounter(counter + 1);
   const decreaseByOne = () => setCounter(counter - 1);
-  const setToOne = () => setCounter(1);
+  const reset = () => setCounter(defaultSize);
   return (
     <Layout>
-      <Sign bioLink="https://github.com/bojne"></Sign>
       <CounterWrapper class="card block">
-        <p class="block accent fixed">{counter}</p>
+        <p class="block accent fixed">Size: {counter}</p>
         <Button onClick={increaseByOne} text="plus" />
-        <Button onClick={setToOne} text="one" />
+        <Button onClick={reset} text="reset" />
         <Button onClick={decreaseByOne} text="minus" />
       </CounterWrapper>
       <Container>
-        <Rotate size={counter}>
-          &lt;{" "}
-          <span role="img" aria-label="earth">
-            🌏
-          </span>
-          &gt;
-        </Rotate>
+        <RotatableEmoji emoji="🌏" size={counter}></RotatableEmoji>
       </Container>
+      <RotatableEmoji emoji="🌍" size={counter}></RotatableEmoji>
     </Layout>
   );
 };
 
-export default App;
+export default OrbitApp2;

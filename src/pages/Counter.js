@@ -1,33 +1,6 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
-
-const Button = (props) => {
-  return (
-    <button class="block" onClick={props.onClick}>
-      {props.text}
-    </button>
-  );
-};
-
-const CounterWrapper = styled.div`
-  display: flex;
-`;
-
-const CounterSet = () => {
-  const [counter, setCounter] = useState(0);
-
-  const increaseByOne = () => setCounter(counter + 1);
-  const decreaseByOne = () => setCounter(counter - 1);
-  const setToZero = () => setCounter(0);
-  return (
-    <CounterWrapper class="card block">
-      <p class="block accent fixed">{counter}</p>
-      <Button onClick={increaseByOne} text="plus" />
-      <Button onClick={setToZero} text="zero" />
-      <Button onClick={decreaseByOne} text="minus" />
-    </CounterWrapper>
-  );
-};
+import Counter from "../Components/Counter";
 
 const rotate = keyframes`
   from {
@@ -67,18 +40,18 @@ const Sign = ({ bioLink }) => {
   );
 };
 
-const App = () => {
+const OrbitApp = () => {
   return (
     <Layout>
-      <CounterSet />
-      <CounterSet />
-      <CounterSet />
-      <CounterSet />
-      <CounterSet />
-      <CounterSet />
+      <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
       <Rotate>
         <span role="img" aria-label="earth">
-          🌏
+          🙊
         </span>
       </Rotate>
       <Sign bioLink="https://github.com/bojne"></Sign>
@@ -86,4 +59,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default OrbitApp;
