@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Counter from "../Components/Counter";
 import RotatableEmoji from "../Components/RotateText";
 const Layout = styled.div`
