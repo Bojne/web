@@ -45,16 +45,6 @@ const RotatableEmoji = ({ emoji, size, initDeg, period }) => {
   );
 };
 
-const renderEmoji = () => {
-  const emojis = ["🌑", "🌒", "🌓", "🌔"];
-  const emojiList = emojis.map((emo) => "<li>" + emo + "</li>");
-  return (
-    <ul>
-      <emojiList>emojiList</emojiList>
-    </ul>
-  );
-};
-
 const Container = styled.div`
   width: 30%;
   display: flex;
@@ -63,6 +53,7 @@ const Container = styled.div`
 const OrbitApp2 = () => {
   const defaultSize = 6;
   const [size, setCounter] = useState(defaultSize);
+  const [period, setPeriod] = useState(defaultSize);
 
   return (
     <Layout>
@@ -71,9 +62,16 @@ const OrbitApp2 = () => {
         setValue={setCounter}
         defaultValue={defaultSize}
       ></Counter>
+      <Counter value={period} setValue={setPeriod} defaultValue={10}>
+        Period
+      </Counter>
       <renderEmoji />
       <Container>
-        <RotatableEmoji emoji="🌏" size={size} period={3}></RotatableEmoji>
+        <RotatableEmoji
+          emoji="🌏"
+          size={size}
+          period={10 / period}
+        ></RotatableEmoji>
         <RotatableEmoji
           emoji="🌓"
           size={size}

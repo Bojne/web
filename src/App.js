@@ -11,7 +11,7 @@ const Sign = ({ bioLink }) => {
     <p class="block fixed">
       {" "}
       Made by{" "}
-      <a href={bioLink} target="_blank">
+      <a href={bioLink} target="_blank" rel="noopener noreferrer">
         {" "}
         Yueh-Han
       </a>
