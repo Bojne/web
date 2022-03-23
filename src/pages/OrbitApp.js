@@ -41,7 +41,7 @@ const OrbitApp2 = () => {
           period={4}
           initDeg={30}
         ></RotatableEmoji>
-        <RotatableEmoji emoji="🌍" period={10} size={size}></RotatableEmoji>
+        <RotatableEmoji emoji="🌞" period={10} size={size}></RotatableEmoji>
       </Container>
     </Layout>
   );

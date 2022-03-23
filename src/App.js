@@ -9,7 +9,7 @@ import "./index.css";
 
 const Sign = ({ bioLink }) => {
   return (
-    <p class="block fixed">
+    <p class="block fixed round">
       {" "}
       Made by <a href={bioLink}> Yueh-Han</a>
     </p>
@@ -24,16 +24,16 @@ const Bar = styled.div`
 const NavBar = () => {
   return (
     <Bar class="block fixed">
-      <Link class="block" to="/">
+      <Link class="block round" to="/">
         Home
       </Link>
-      <Link class="block" to="/counter">
+      <Link class="block round" to="/counter">
         Counter
       </Link>
-      <Link class="block" to="/moon">
+      <Link class="block round" to="/moon">
         Moon
       </Link>
-      <Link class="block" to="/clocks">
+      <Link class="block round" to="/clocks">
         Clocks
       </Link>
 
