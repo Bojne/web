@@ -3,7 +3,7 @@ import styled from "styled-components";
 import RotatableEmoji from "../Components/RotateText";
 
 const Wrapper = styled.div`
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
 `;

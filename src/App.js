@@ -9,7 +9,7 @@ import "./index.css";
 
 const Sign = ({ bioLink }) => {
   return (
-    <p class="block fixed round">
+    <p class="block fixed">
       {" "}
       Made by <a href={bioLink}> Yueh-Han</a>
     </p>
@@ -18,22 +18,27 @@ const Sign = ({ bioLink }) => {
 
 const Bar = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
+  margin-right: 4rem;
+  padding: 0.7rem;
+  background-color: #d6e5fa;
+  border-radius: 1rem;
 `;
 
 const NavBar = () => {
   return (
-    <Bar class="block fixed">
-      <Link class="block round" to="/">
+    <Bar>
+      <Link class="block" to="/">
         Home
       </Link>
-      <Link class="block round" to="/counter">
+      <Link class="block" to="/counter">
         Counter
       </Link>
-      <Link class="block round" to="/moon">
+      <Link class="block" to="/moon">
         Moon
       </Link>
-      <Link class="block round" to="/clocks">
+      <Link class="block" to="/clocks">
         Clocks
       </Link>
 
