@@ -17,7 +17,7 @@ const Sign = ({ bioLink }) => {
 };
 
 const Bar = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   margin-top: 1rem;
   margin-right: 4rem;
