@@ -15,10 +15,10 @@ const CityBox = styled.div`
 const TimeSpan = ({ date, flag, timezone }) => {
   return (
     <CityBox>
-      <span class="block fixed"> {flag}</span>
-      <span class="block accent fixed">
+      <h3 class="block fixed"> {flag}</h3>
+      <h3 class="block accent fixed">
         {date.toLocaleTimeString("en-US", { timeZone: timezone })}
-      </span>
+      </h3>
     </CityBox>
   );
 };
