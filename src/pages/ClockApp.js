@@ -50,6 +50,7 @@ const Clocks = () => {
   return (
     <Wrapper>
       <TimeSpan date={date} flag={"✨ You"}></TimeSpan>
+      <br></br>
       {locations.map(({ flag, timezone }) => (
         <TimeSpan date={date} flag={flag} timezone={timezone}></TimeSpan>
       ))}
