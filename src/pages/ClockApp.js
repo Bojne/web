@@ -15,8 +15,8 @@ const CityBox = styled.div`
 const TimeSpan = ({ date, flag, timezone }) => {
   return (
     <CityBox>
-      <span class="block"> {flag}</span>
-      <span class="block accent">
+      <span class="block fixed"> {flag}</span>
+      <span class="block accent fixed">
         {date.toLocaleTimeString("en-US", { timeZone: timezone })}
       </span>
     </CityBox>
@@ -43,12 +43,13 @@ const Clocks = () => {
     { flag: "🇬🇧 London", timezone: "Europe/London" },
     { flag: "🇩🇪 Berlin", timezone: "Europe/Berlin" },
     { flag: "🇮🇳 Hyderabad", timezone: "Asia/Calcutta" },
-    { flag: "🇹🇼 Taipi", timezone: "Asia/Taipei" },
+    { flag: "🇹🇼 Taipei", timezone: "Asia/Taipei" },
     { flag: "🇰🇷 Seoul", timezone: "Asia/Seoul" },
   ];
 
   return (
     <Wrapper>
+      <TimeSpan date={date} flag={"✨ You"}></TimeSpan>
       {locations.map(({ flag, timezone }) => (
         <TimeSpan date={date} flag={flag} timezone={timezone}></TimeSpan>
       ))}
