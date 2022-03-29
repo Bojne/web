@@ -10,10 +10,10 @@ const Sentence = styled.div`
 `;
 
 const Word = ({ text }) => {
-  const [scrollLocked, setScrollLocked] = useScrollLock();
-  const color = scrollLocked ? "teal" : "gray";
+  const [selected, setSelected] = useScrollLock();
+  const color = selected ? "teal" : "gray";
   return (
-    <Button onClick={() => setScrollLocked((c) => !c)} mx={3} color={color}>
+    <Button onClick={() => setSelected((c) => !c)} mx={3} color={color}>
       {text}
     </Button>
   );
