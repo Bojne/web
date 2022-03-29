@@ -6,6 +6,7 @@ import EmojiRing from "./pages/MoonApp";
 import ClockApp from "./pages/ClockApp";
 import styled from "styled-components";
 import "./index.css";
+import BirthdayApp from "./pages/Birthday";
 
 const Sign = ({ bioLink }) => {
   return (
@@ -41,6 +42,9 @@ const NavBar = () => {
       <Link class="block" to="/clocks">
         Clocks
       </Link>
+      <Link class="block" to="/bday">
+        B-day
+      </Link>
 
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Bar>
@@ -60,6 +64,7 @@ const App = () => {
         <Route exact path="/counter" element={<OrbitApp />}></Route>
         <Route exact path="/moon" element={<EmojiRing />}></Route>
         <Route exact path="/clocks" element={<ClockApp />}></Route>
+        <Route exact path="/bday" element={<BirthdayApp />}></Route>
       </Routes>
     </Container>
   );
