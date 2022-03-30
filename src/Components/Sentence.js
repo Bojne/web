@@ -20,7 +20,8 @@ const Word = ({ text, active = false }) => {
 };
 
 const SentenceToWords = ({ sentence, tags }) => {
-  const wordList = sentence.split(" ");
+  const wordList =
+    typeof sentence === typeof "String" ? sentence.split(" ") : sentence;
   return (
     <Sentence>
       {wordList.map((w, id) => (
