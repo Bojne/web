@@ -8,10 +8,11 @@ import styled from "styled-components";
 import "./index.css";
 import BirthdayApp from "./pages/Birthday";
 import TextSelectApp from "./pages/TextSelect";
+import StressWordApp from "./pages/StressWord";
 
 const Sign = ({ bioLink }) => {
   return (
-    <p class="block fixed">
+    <p className="block fixed">
       {" "}
       Made by <a href={bioLink}> Yueh-Han</a>
     </p>
@@ -31,23 +32,26 @@ const Bar = styled.div`
 const NavBar = () => {
   return (
     <Bar>
-      <Link class="block" to="/">
+      <Link className="block" to="/">
         Home
       </Link>
-      <Link class="block" to="/counter">
+      <Link className="block" to="/counter">
         Counter
       </Link>
-      <Link class="block" to="/moon">
+      <Link className="block" to="/moon">
         Moon
       </Link>
-      <Link class="block" to="/clocks">
+      <Link className="block" to="/clocks">
         Clocks
       </Link>
-      <Link class="block" to="/bday">
+      <Link className="block" to="/bday">
         B-day
       </Link>
-      <Link class="block" to="/text-select">
+      <Link className="block" to="/text-select">
         Text Select
+      </Link>
+      <Link className="block" to="/stress-words">
+        Stress Words
       </Link>
 
       <Sign bioLink="https://github.com/bojne"></Sign>
@@ -70,6 +74,7 @@ const App = () => {
         <Route exact path="/clocks" element={<ClockApp />}></Route>
         <Route exact path="/bday" element={<BirthdayApp />}></Route>
         <Route exact path="/text-select" element={<TextSelectApp />}></Route>
+        <Route exact path="/stress-words" element={<StressWordApp />}></Route>
       </Routes>
     </Container>
   );

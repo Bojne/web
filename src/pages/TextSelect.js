@@ -1,39 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "@mantine/core";
-import { useScrollLock } from "@mantine/hooks";
-
-const Sentence = styled.div`
-  display: inline-flex;
-  flex-direction: row;
-  margin-top: 2rem;
-`;
-
-const Word = ({ text }) => {
-  const [selected, setSelected] = useScrollLock();
-  const color = selected ? "teal" : "gray";
-  return (
-    <Button onClick={() => setSelected((c) => !c)} mx={3} color={color}>
-      {text}
-    </Button>
-  );
-};
+import SentenceToWords from "../Components/Sentence";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const SentenceToWords = ({ sentence }) => {
-  const wordList = sentence.split(" ");
-  console.log(wordList.map((w) => <div>w</div>));
-  return (
-    <Sentence>
-      {wordList.map((w) => (
-        <Word text={w}></Word>
-      ))}
-    </Sentence>
-  );
-};
 
 const TextSelectApp = () => {
   const texts = [
@@ -47,8 +19,8 @@ const TextSelectApp = () => {
 
   return (
     <Container>
-      {texts.map((s) => (
-        <SentenceToWords sentence={s}></SentenceToWords>
+      {texts.map((s, id) => (
+        <SentenceToWords sentence={s} key={id}></SentenceToWords>
       ))}
     </Container>
   );
