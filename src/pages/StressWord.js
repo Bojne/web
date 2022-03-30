@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, Select } from "@mantine/core";
+import { TextInput, Select, Code } from "@mantine/core";
 import SentenceToWords from "../Components/Sentence";
 import styled from "styled-components";
 var pos = require("pos");
@@ -12,21 +12,37 @@ const Wrapper = styled.div`
 `;
 let tagger = new pos.Tagger();
 
+const getTag = (word) => {
+  let words = new pos.Lexer().lex(word);
+  let taggedWord = tagger.tag(words);
+  return taggedWord;
+};
+
 const isStessWord = (word) => {
   // tag that required stress
   const stesssTag = ["NN", "NNP", "NNS", "NNPS", "JJ", "VB", "VBG"];
-  let words = new pos.Lexer().lex(word);
-  let taggedWord = tagger.tag(words);
-  console.log(taggedWord);
-  return stesssTag.includes(taggedWord[0][1]);
+  const excludeCommonVBD = ["had", "was"];
+  const tag = getTag(word)[0][1];
+  if (tag === "VBD") {
+    console.log(tag);
+    return !excludeCommonVBD.includes(word);
+  } else {
+    return stesssTag.includes(tag);
+  }
 };
 
 const WordTagging = ({ sentence }) => {
   const wordArray = sentence.split(" ");
   const tags = wordArray.map((w) => isStessWord(w));
-  console.log(tags);
+  const posType = wordArray.map((w) => getTag(w)[0][1]);
   console.log(wordArray);
-  return <SentenceToWords sentence={wordArray} tags={tags}></SentenceToWords>;
+  return (
+    <SentenceToWords
+      sentence={wordArray}
+      tags={tags}
+      posType={posType}
+    ></SentenceToWords>
+  );
 };
 
 const StressWordApp = () => {
@@ -39,7 +55,7 @@ const StressWordApp = () => {
     "Jennifer and Alice had finished the report before it was due last week.",
   ];
   const [text, setText] = useState(texts[0]);
-  const [inputText, setInputText] = useState(texts[0]);
+  const [inputText, setInputText] = useState(texts[1]);
 
   return (
     <Wrapper>
@@ -58,6 +74,7 @@ const StressWordApp = () => {
         onChange={(event) => setInputText(event.currentTarget.value)}
       />
       <WordTagging sentence={inputText ? inputText : "NA"}></WordTagging>
+      <Code></Code>
     </Wrapper>
   );
 };
