@@ -20,7 +20,21 @@ const getTag = (word) => {
 
 const isStessWord = (word) => {
   // tag that required stress
-  const stesssTag = ["NN", "NNP", "NNS", "NNPS", "JJ", "VB", "VBG"];
+  const stesssTag = [
+    "NN",
+    "NNP",
+    "NNS",
+    "NNPS",
+    "JJ",
+    "JJR",
+    "JJS",
+    "VB",
+    "VBG",
+    "CD",
+    "RB",
+    "RBR",
+    "RBS",
+  ];
   const excludeCommonVBD = ["had", "was"];
   const tag = getTag(word)[0][1];
   if (tag === "VBD") {
