@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
 import styled from "styled-components";
 import Counter from "../Components/Counter";
-import ScreenshotBtn from "../Components/ScreenshotBtn";
+import { toPng } from "html-to-image";
 import logo from "../logo.png";
 import thinkingEmoji from "../thinking-face.png";
+import { Button } from "@mantine/core";
 
 const Container = styled.div`
   width: 100%;
@@ -56,10 +57,25 @@ const DragObject = () => {
   const balls = Array.from(Array(10).keys());
   const ref = useRef(null);
 
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "my-image-name.png";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
   return (
-    <Container refDiv={ref}>
+    <Container>
       <h3>Status: {status}</h3>
-      <ScreenshotBtn reff={ref}></ScreenshotBtn>
       <FlexContiner>
         <h4>Size: </h4>
         <Counter
@@ -68,30 +84,33 @@ const DragObject = () => {
           defaultValue={defSize}
         ></Counter>
       </FlexContiner>
-      <FlexContiner>
-        {balls.map((b, id) => (
-          <DraggableEmoji
-            key={id}
-            size={size}
-            setStatus={setStatus}
-          ></DraggableEmoji>
-        ))}
-      </FlexContiner>
+      <div ref={ref}>
+        <FlexContiner>
+          {balls.map((b, id) => (
+            <DraggableEmoji
+              key={id}
+              size={size}
+              setStatus={setStatus}
+            ></DraggableEmoji>
+          ))}
+        </FlexContiner>
 
-      <Draggable>
-        <Resizable
-          defaultSize={{
-            width: 150,
-            height: 150,
-          }}
-          style={{
-            background: `url(${thinkingEmoji})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-          }}
-          lockAspectRatio={true}
-        ></Resizable>
-      </Draggable>
+        <Draggable>
+          <Resizable
+            defaultSize={{
+              width: 150,
+              height: 150,
+            }}
+            style={{
+              background: `url(${thinkingEmoji})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+            lockAspectRatio={true}
+          ></Resizable>
+        </Draggable>
+      </div>
+      <Button onClick={onButtonClick}>Screenshot</Button>
     </Container>
   );
 };
