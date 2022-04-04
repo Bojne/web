@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Draggable from "react-draggable";
+import { Resizable } from "re-resizable";
 import styled from "styled-components";
 import Counter from "../Components/Counter";
+
 const Container = styled.div`
   width: 100%;
   margin-top: 2rem;
 `;
+
+const imageUrl =
+  "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/thinking-face_1f914.png";
 
 const Image = styled.div`
   background-image: url("https://github.com/Bojne/learn-react/blob/master/public/logo.png?raw=true");
@@ -65,6 +70,22 @@ const DragObject = () => {
           <DraggableEmoji size={size} setStatus={setStatus}></DraggableEmoji>
         ))}
       </FlexContiner>
+
+      <Draggable>
+        <Resizable
+          defaultSize={{
+            width: 150,
+            height: 150,
+          }}
+          style={{
+            background: `url(${imageUrl})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            // border: "4px dotted blue",
+          }}
+          lockAspectRatio={true}
+        ></Resizable>
+      </Draggable>
     </Container>
   );
 };
