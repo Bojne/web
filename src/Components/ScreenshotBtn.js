@@ -1,11 +1,10 @@
 import React from "react";
-import * as htmlToImage from "html-to-image";
+import { toPng } from "html-to-image";
 import { Button } from "@mantine/core";
-const ScreenshotBtn = ({ ref }) => {
+const ScreenshotBtn = ({ refDiv }) => {
   var node = document.getElementById("root");
   const doScreenshot = () => {
-    htmlToImage
-      .toPng(node)
+    toPng(node)
       .then(function (dataUrl) {
         var link = document.createElement("a");
         link.download = "collage.jpeg";

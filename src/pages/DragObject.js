@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
 import styled from "styled-components";
@@ -6,13 +6,11 @@ import Counter from "../Components/Counter";
 import ScreenshotBtn from "../Components/ScreenshotBtn";
 import logo from "../logo.png";
 import thinkingEmoji from "../thinking-face.png";
+
 const Container = styled.div`
   width: 100%;
   margin-top: 2rem;
 `;
-
-const emojiURL =
-  "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/thinking-face_1f914.png";
 
 const Image = styled.div`
   background-image: url(${logo});
@@ -56,10 +54,12 @@ const DragObject = () => {
   const [size, setSize] = useState(defSize);
   const [status, setStatus] = useState("Sitting...");
   const balls = Array.from(Array(10).keys());
+  const ref = useRef(null);
+
   return (
-    <Container>
+    <Container refDiv={ref}>
       <h3>Status: {status}</h3>
-      <ScreenshotBtn></ScreenshotBtn>
+      <ScreenshotBtn reff={ref}></ScreenshotBtn>
       <FlexContiner>
         <h4>Size: </h4>
         <Counter
@@ -69,8 +69,12 @@ const DragObject = () => {
         ></Counter>
       </FlexContiner>
       <FlexContiner>
-        {balls.map((b) => (
-          <DraggableEmoji size={size} setStatus={setStatus}></DraggableEmoji>
+        {balls.map((b, id) => (
+          <DraggableEmoji
+            key={id}
+            size={size}
+            setStatus={setStatus}
+          ></DraggableEmoji>
         ))}
       </FlexContiner>
 
@@ -84,7 +88,6 @@ const DragObject = () => {
             background: `url(${thinkingEmoji})`,
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
-            // border: "4px dotted blue",
           }}
           lockAspectRatio={true}
         ></Resizable>

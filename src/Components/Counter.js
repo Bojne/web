@@ -7,7 +7,7 @@ const CounterWrapper = styled.div`
 
 const Button = ({ onClick, text }) => {
   return (
-    <button class="block" onClick={onClick}>
+    <button className="block" onClick={onClick}>
       {text}
     </button>
   );
@@ -18,8 +18,8 @@ const Counter = ({ value, setValue, defaultValue }) => {
   const decreaseByOne = () => setValue(value - 1);
   const resetValue = () => setValue(defaultValue || 1);
   return (
-    <CounterWrapper class="card block">
-      <p class="block accent fixed">{value}</p>
+    <CounterWrapper>
+      <p className="block accent fixed">{value}</p>
       <Button onClick={increaseByOne} text="plus" />
       <Button onClick={resetValue} text="reset" />
       <Button onClick={decreaseByOne} text="minus" />
