@@ -8,6 +8,7 @@
     "pos": "^0.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-draggable": "^4.4.4",
     "react-router-dom": "^6.2.2",
     "react-scripts": "^3.0.1",
     "styled-components": "^5.3.3"

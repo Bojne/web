@@ -9,6 +9,7 @@ import "./index.css";
 import BirthdayApp from "./pages/Birthday";
 import TextSelectApp from "./pages/TextSelect";
 import StressWordApp from "./pages/StressWord";
+import DragObject from "./pages/DragObject";
 
 const Sign = ({ bioLink }) => {
   return (
@@ -53,7 +54,9 @@ const NavBar = () => {
       <Link className="block" to="/stress-words">
         Stress Words
       </Link>
-
+      <Link className="block" to="/drag">
+        Drag this
+      </Link>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Bar>
   );
@@ -75,6 +78,7 @@ const App = () => {
         <Route exact path="/bday" element={<BirthdayApp />}></Route>
         <Route exact path="/text-select" element={<TextSelectApp />}></Route>
         <Route exact path="/stress-words" element={<StressWordApp />}></Route>
+        <Route exact path="/drag" element={<DragObject />}></Route>
       </Routes>
     </Container>
   );
