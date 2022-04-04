@@ -15,13 +15,13 @@ const Image = styled.div`
   height: ${(props) => props.size}rem;
   width: ${(props) => props.size}rem;
   border: 4px dotted rgba(255, 255, 255, 0);
-  &:active {
-    border: 4px dotted blue;
-    cursor: grab;
-  }
   &:hover {
     border: 4px dotted blue;
     cursor: grab;
+  }
+  &:active {
+    border: 4px dotted blue;
+    cursor: grabbing;
   }
 `;
 
