@@ -3,17 +3,19 @@ import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
 import styled from "styled-components";
 import Counter from "../Components/Counter";
-
+import ScreenshotBtn from "../Components/ScreenshotBtn";
+import logo from "../logo.png";
+import thinkingEmoji from "../thinking-face.png";
 const Container = styled.div`
   width: 100%;
   margin-top: 2rem;
 `;
 
-const imageUrl =
+const emojiURL =
   "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/325/thinking-face_1f914.png";
 
 const Image = styled.div`
-  background-image: url("https://github.com/Bojne/learn-react/blob/master/public/logo.png?raw=true");
+  background-image: url(${logo});
   background-repeat: no-repeat;
   background-size: contain;
   color: gray;
@@ -57,6 +59,7 @@ const DragObject = () => {
   return (
     <Container>
       <h3>Status: {status}</h3>
+      <ScreenshotBtn></ScreenshotBtn>
       <FlexContiner>
         <h4>Size: </h4>
         <Counter
@@ -78,7 +81,7 @@ const DragObject = () => {
             height: 150,
           }}
           style={{
-            background: `url(${imageUrl})`,
+            background: `url(${thinkingEmoji})`,
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             // border: "4px dotted blue",

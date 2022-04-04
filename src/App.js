@@ -54,8 +54,8 @@ const NavBar = () => {
       <Link className="block" to="/stress-words">
         Stress Words
       </Link>
-      <Link className="block" to="/drag">
-        Drag this
+      <Link className="block" to="/collage">
+        Collage
       </Link>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Bar>
@@ -63,7 +63,10 @@ const NavBar = () => {
 };
 
 const Container = styled.div`
-  margin-left: 5em;
+  padding-left: 5em;
+  background-color: white;
+  width: 100%;
+  height: 100%;
 `;
 
 const App = () => {
@@ -78,7 +81,7 @@ const App = () => {
         <Route exact path="/bday" element={<BirthdayApp />}></Route>
         <Route exact path="/text-select" element={<TextSelectApp />}></Route>
         <Route exact path="/stress-words" element={<StressWordApp />}></Route>
-        <Route exact path="/drag" element={<DragObject />}></Route>
+        <Route exact path="/collage" element={<DragObject />}></Route>
       </Routes>
     </Container>
   );
