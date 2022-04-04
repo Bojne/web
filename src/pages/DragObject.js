@@ -14,6 +14,7 @@ const Container = styled.div`
 `;
 
 const Frame = styled.div`
+  display: flex;
   position: relative;
   background-color: white;
   width: 50rem;
@@ -95,15 +96,13 @@ const DragObject = () => {
         ></Counter>
       </FlexContiner>
       <Frame ref={ref}>
-        <FlexContiner>
-          {balls.map((b, id) => (
-            <DraggableEmoji
-              key={id}
-              size={size}
-              setStatus={setStatus}
-            ></DraggableEmoji>
-          ))}
-        </FlexContiner>
+        {balls.map((b, id) => (
+          <DraggableEmoji
+            key={id}
+            size={size}
+            setStatus={setStatus}
+          ></DraggableEmoji>
+        ))}
 
         <Draggable bounds="parent">
           <Resizable
