@@ -13,6 +13,15 @@ const Container = styled.div`
   margin-top: 2rem;
 `;
 
+const Frame = styled.div`
+  position: relative;
+  background-color: white;
+  width: 50rem;
+  height: 30rem;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+`;
+
 const Image = styled.div`
   background-image: url(${logo});
   background-repeat: no-repeat;
@@ -37,6 +46,7 @@ const DraggableEmoji = ({ size, setStatus }) => {
 
   return (
     <Draggable
+      bounds="parent"
       onStart={startDragging}
       onDrag={startDragging}
       onStop={stopDragging}
@@ -84,7 +94,7 @@ const DragObject = () => {
           defaultValue={defSize}
         ></Counter>
       </FlexContiner>
-      <div ref={ref}>
+      <Frame ref={ref}>
         <FlexContiner>
           {balls.map((b, id) => (
             <DraggableEmoji
@@ -95,7 +105,7 @@ const DragObject = () => {
           ))}
         </FlexContiner>
 
-        <Draggable>
+        <Draggable bounds="parent">
           <Resizable
             defaultSize={{
               width: 150,
@@ -109,7 +119,7 @@ const DragObject = () => {
             lockAspectRatio={true}
           ></Resizable>
         </Draggable>
-      </div>
+      </Frame>
       <Button onClick={onButtonClick}>Screenshot</Button>
     </Container>
   );
