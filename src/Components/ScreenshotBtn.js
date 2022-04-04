@@ -1,7 +1,7 @@
 import React from "react";
 import * as htmlToImage from "html-to-image";
 import { Button } from "@mantine/core";
-const ScreenshotBtn = () => {
+const ScreenshotBtn = ({ ref }) => {
   var node = document.getElementById("root");
   const doScreenshot = () => {
     htmlToImage
