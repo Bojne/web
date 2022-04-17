@@ -10,6 +10,7 @@ import BirthdayApp from "./pages/Birthday";
 import TextSelectApp from "./pages/TextSelect";
 import StressWordApp from "./pages/StressWord";
 import DragObject from "./pages/DragObject";
+import CloudApp from "./pages/Cloud";
 
 const Sign = ({ bioLink }) => {
   return (
@@ -57,6 +58,9 @@ const NavBar = () => {
       <Link className="block" to="/collage">
         Collage
       </Link>
+      <Link className="block" to="/cloud">
+        Cloud
+      </Link>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Bar>
   );
@@ -82,6 +86,7 @@ const App = () => {
         <Route exact path="/text-select" element={<TextSelectApp />}></Route>
         <Route exact path="/stress-words" element={<StressWordApp />}></Route>
         <Route exact path="/collage" element={<DragObject />}></Route>
+        <Route exact path="/cloud" element={<CloudApp />}></Route>
       </Routes>
     </Container>
   );
