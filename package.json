@@ -12,7 +12,7 @@
     "html-to-image": "^1.9.0",
     "pos": "^0.4.2",
     "re-resizable": "^6.9.5",
-    "react": "^16.8.6",
+    "react":up "^16.8.6",
     "react-dom": "^16.8.6",
     "react-draggable": "^4.4.4",
     "react-router-dom": "^6.2.2",
