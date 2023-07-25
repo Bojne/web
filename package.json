@@ -9,15 +9,15 @@
     "@mantine/core": "^6.0.17",
     "@mantine/hooks": "^6.0.17",
     "@mantine/styles": "^6.0.17",
-    "html-to-image": "^1.9.0",
+    "html-to-image": "^1.11.11",
     "pos": "^0.4.2",
-    "re-resizable": "^6.9.5",
-    "react":up "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-draggable": "^4.4.4",
-    "react-router-dom": "^6.2.2",
+    "re-resizable": "^6.9.9",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-draggable": "^4.4.5",
+    "react-router-dom": "^6.14.2",
     "react-scripts": "^5.0.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.11"
   },
   "scripts": {
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
