@@ -6,6 +6,7 @@
     "node": "18.x"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.17",
     "@mantine/hooks": "^6.0.17",
     "@mantine/styles": "^6.0.17",
