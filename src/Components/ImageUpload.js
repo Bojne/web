@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  FileInput,
-  FileButton,
-  Button,
-  Group,
-  Text,
-  Container,
-} from "@mantine/core";
+import { FileInput } from "@mantine/core";
 
 const ImageUpload = () => {
   const [selectedImage, setSelectedImage] = useState(null);
