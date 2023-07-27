@@ -13,6 +13,7 @@ import DragObject from "./pages/DragObject";
 import CloudApp from "./pages/Cloud";
 import ImageUploadApp from "./pages/ImageUploadApp";
 import SpotifyApp from "./pages/SpotifyApp";
+import SplineApp from "./pages/SplineObjectApp";
 
 const Sign = ({ bioLink }) => {
   return (
@@ -69,6 +70,9 @@ const NavBar = () => {
       <Link className="block" to="/music">
         Music
       </Link>
+      <Link className="block" to="/room">
+        Room
+      </Link>
       <Sign bioLink="https://github.com/bojne"></Sign>
     </Bar>
   );
@@ -97,6 +101,7 @@ const App = () => {
         <Route exact path="/cloud" element={<CloudApp />}></Route>
         <Route exact path="/upload" element={<ImageUploadApp />}></Route>
         <Route exact path="/music" element={<SpotifyApp />}></Route>
+        <Route exact path="/room" element={<SplineApp />}></Route>
       </Routes>
     </Container>
   );
